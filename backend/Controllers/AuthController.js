@@ -14,7 +14,11 @@ const signup = async(req, res) => {
        const hashedPassword = await bcrypt.hash(password, 10);
        const newUser = new userModel({ name, email, password: hashedPassword }); 
        await newUser.save();
-       res.status(201).json({message:"user created successfully",success:true});
+       res.status(201).json({message:"user created successfully",success:true, user: {
+        id: newUser._id,
+        name: newUser.name,
+        email: newUser.email
+      }});
     }catch(error){
         res.status(500).json({
             message:"Internal server error!",

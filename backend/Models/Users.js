@@ -8,12 +8,19 @@ const UserSchema = new Schema({
     }, 
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true // optional but helpful
     },
     password: {
         type: String,
         required: true
     },
+    designation: {
+        type: String,
+        default: "Student"
+  },
+
+
 });
 
 const UserModel = mongoose.model("users", UserSchema);
