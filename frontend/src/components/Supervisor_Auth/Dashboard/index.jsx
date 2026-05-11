@@ -65,9 +65,9 @@ const SupervisorDashboard = () => {
     try {
       const [projectRes, teamsRes] = await Promise.all([
         axios.get(
-          `http://localhost:8000/auth/assigned-projects/stats/${supervisorId}`
+         `${process.env.REACT_APP_API_URL}/auth/assigned-projects/stats/${supervisorId}`
         ),
-        axios.get("http://localhost:8000/auth/teams"),
+        axios.get(`${process.env.REACT_APP_API_URL}/auth/teams`),
       ]);
 
       const assignedProjects = projectRes.data.projects;

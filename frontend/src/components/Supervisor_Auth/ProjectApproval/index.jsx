@@ -11,10 +11,10 @@ const PendingProjects = () => {
    const fetchPendingProjects = async () => {
   try {
     const [assignedRes, projectRes] = await Promise.all([
-      axios.get("http://localhost:8000/auth/assigned-projects", {
+      axios.get(`${process.env.REACT_APP_API_URL}/auth/assigned-projects`, {
         headers: { Authorization: `Bearer ${token}` },
       }),
-      axios.get("http://localhost:8000/auth/projects", {
+      axios.get(`${process.env.REACT_APP_API_URL}/auth/projects`, {
         headers: { Authorization: `Bearer ${token}` },
       }),
     ]);
@@ -53,7 +53,7 @@ const PendingProjects = () => {
     console.log("decision>>>>",decision);
 
     const response = await axios.put(
-      `http://localhost:8000/auth/update-project-status/${projectId}`,
+      `${process.env.REACT_APP_API_URL}/auth/update-project-status/${projectId}`,
       { status: decision }, // "approved" or "rejected"
       { headers: { Authorization: `Bearer ${token}` } }
     );

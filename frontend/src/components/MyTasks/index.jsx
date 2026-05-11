@@ -47,7 +47,7 @@ const MyTasks = () => {
   const submitProject = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/submit-project",
+        `${process.env.REACT_APP_API_URL}/auth/submit-project`,
         {
           taskId: selectedTask._id,
           userId: loggedInUser.id,
@@ -80,10 +80,10 @@ const MyTasks = () => {
     try {
       // ✅ Corrected API URL (removed extra slash)
       const response = await axios.get(
-        `http://localhost:8000/auth/Myassigned-tasks?userId=${userId}`
+        `${process.env.REACT_APP_API_URL}/auth/Myassigned-tasks?userId=${userId}`
       );
       const otherTasks = await axios.get(
-        `http://localhost:8000/auth/Otherassigned-tasks?userId=${userId}`
+       `${process.env.REACT_APP_API_URL}/auth/Otherassigned-tasks?userId=${userId}`
       );
       console.log("otherTasks", otherTasks.data);
       setOtherTasks(otherTasks.data);
@@ -98,7 +98,7 @@ const MyTasks = () => {
   const handleRejectProject = async (task) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/auth/reject-task/${task._id}`,
+        `${process.env.REACT_APP_API_URL}/auth/reject-task/${task._id}`,
         {
           method: "POST",
           headers: {
@@ -125,7 +125,7 @@ const MyTasks = () => {
   const handleApprovProject = async (task) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/auth/approve-task/${task._id}`,
+       `${process.env.REACT_APP_API_URL}/auth/approve-task/${task._id}`,
         {
           method: "post",
           headers: {
@@ -169,7 +169,7 @@ const MyTasks = () => {
     try {
       const updatedStatus =
         currentStatus === "Pending" ? "Completed" : "Pending";
-      await axios.put(`http://localhost:8000/auth/update-task/${taskId}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/auth/update-task/${taskId}`, {
         status: updatedStatus,
       });
       fetchTasks();

@@ -40,9 +40,9 @@ const Message = ({ activeUserId = null }) => {
       const token = localStorage.getItem("token");
 
       const [usersRes, adminsRes, supervisorsRes] = await Promise.all([
-        axios.get("http://localhost:8000/auth/users"),
-        axios.get("http://localhost:8000/auth/admins"),
-        axios.get("http://localhost:8000/auth/supervisors"),
+        axios.get(`${process.env.REACT_APP_API_URL}/auth/users`),
+        axios.get(`${process.env.REACT_APP_API_URL}/auth/admins`),
+        axios.get(`${process.env.REACT_APP_API_URL}/auth/supervisors`),
       ]);
 
       const allUsers = usersRes.data.users || usersRes.data;
@@ -82,7 +82,7 @@ useEffect(() => {
   const loadMessages = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/auth/messages/${receiverId}`,
+        `${process.env.REACT_APP_API_URL}/auth/messages/${receiverId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setMessages(res.data.messages || []);
@@ -105,7 +105,7 @@ useEffect(() => {
         const token = localStorage.getItem("token");
 
         await axios.post(
-          "http://localhost:8000/auth/messages/send",
+          `${process.env.REACT_APP_API_URL}/auth/messages/send`,
           {
             senderId,
             receiverId,
@@ -120,7 +120,7 @@ useEffect(() => {
 
         // Refresh messages
         const response = await axios.get(
-          `http://localhost:8000/auth/messages/${receiverId}`,
+         `${process.env.REACT_APP_API_URL}/auth/messages/${receiverId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

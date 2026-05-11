@@ -74,7 +74,7 @@ const Dashboard = ({ setActiveModule }) => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/auth/users");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/users`);
       setUsers(response.data);
       console.log("Users fetched successfully:", response.data);
     } catch (error) {
@@ -84,7 +84,7 @@ const Dashboard = ({ setActiveModule }) => {
   const fetchSupervisors = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/auth/supervisors"
+        `${process.env.REACT_APP_API_URL}/auth/supervisors`
       );
       setSupervisors(response.data.supervisors);
       console.log("Supervisors fetched successfully:", response.data);
@@ -102,7 +102,7 @@ const Dashboard = ({ setActiveModule }) => {
 
   const fetchTeams = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/auth/teams");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/teams`);
       const teams = response.data.teams;
 
       const your = teams.filter((team) =>
@@ -129,7 +129,7 @@ const Dashboard = ({ setActiveModule }) => {
     try {
       // Fetch task summary
       const taskSummaryResponse = await fetch(
-        `http://localhost:8000/auth/dashboard/task-summary?userId=${userId}`
+        `${process.env.REACT_APP_API_URL}/auth/dashboard/task-summary?userId=${userId}`
       );
 
       // Convert response to JSON
@@ -141,14 +141,14 @@ const Dashboard = ({ setActiveModule }) => {
 
       // Fetch leaderboard data
       const leaderboardResponse = await axios.get(
-        "http://localhost:8000/auth/dashboard/leaderboard"
+        `${process.env.REACT_APP_API_URL}/auth/dashboard/leaderboard`
       );
       console.log("leaderboardResponse.data>>>>>>", leaderboardResponse.data);
       setLeaderboard(leaderboardResponse.data);
 
       // Fetch recent tasks
       const recentTasksResponse = await axios.get(
-        "http://localhost:8000/auth/dashboard/recent-tasks"
+        `${process.env.REACT_APP_API_URL}/auth/dashboard/recent-tasks`
       );
       console.log("recentTasksResponse>>>>>>", recentTasksResponse.data);
       setRecentTasks(recentTasksResponse.data);
@@ -181,7 +181,7 @@ const Dashboard = ({ setActiveModule }) => {
     };
 
     const response = await axios.post(
-      "http://localhost:8000/auth/create-team",
+      `${process.env.REACT_APP_API_URL}/auth/create-team`,
       payload
     );
 

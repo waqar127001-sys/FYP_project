@@ -29,8 +29,8 @@ const AssignProjectForm = () => {
 
   const fetchData = async () => {
     try {
-      const projectRes = await axios.get("http://localhost:8000/auth/projects");
-      const groupRes = await axios.get("http://localhost:8000/auth/teams");
+      const projectRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/projects`);
+      const groupRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/teams`);
 
       setProjects(projectRes.data);
       setGroups(groupRes.data);
@@ -41,7 +41,7 @@ const AssignProjectForm = () => {
 
   const fetchAssignedProjects = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/auth/assigned-projects");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/auth/assigned-projects`);
       const allAssignedProjects = res.data;
 
       const filtered = allAssignedProjects.filter(project => {
@@ -60,7 +60,7 @@ const AssignProjectForm = () => {
     setErrorMessage("");
 
     try {
-      await axios.post("http://localhost:8000/auth/assign-project", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/auth/assign-project`, {
         projectId: selectedProject,
         groupId: selectedGroup,
         supervisorId,

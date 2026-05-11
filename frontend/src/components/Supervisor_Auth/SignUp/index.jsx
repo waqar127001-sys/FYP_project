@@ -65,7 +65,7 @@ const SupervisorSignup = () => {
     setErrorVisible(false);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/auth/supervisor/signup", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/supervisor/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

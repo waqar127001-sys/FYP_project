@@ -9,7 +9,7 @@ const FeedbackList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/auth/Feedback/list")
+      .get(`${process.env.REACT_APP_API_URL}/auth/Feedback/list`)
       .then((res) => setFeedbacks(res.data))
       .catch((err) => console.error("Failed to load feedbacks", err));
   }, []);

@@ -33,7 +33,7 @@ const CreateTask = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/auth/users");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/users`);
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -44,8 +44,8 @@ const CreateTask = () => {
       try {
         // Fetch tasks and projects in parallel
         const [tasksRes, projectsRes] = await Promise.all([
-          axios.get("http://localhost:8000/auth/tasks"),
-          axios.get(`http://localhost:8000/auth/student-project/${userId}`),
+          axios.get(`${process.env.REACT_APP_API_URL}/auth/tasks`),
+          axios.get(`${process.env.REACT_APP_API_URL}/auth/student-project/${userId}`),
         ]);
 
         const tasks = tasksRes.data;
@@ -87,7 +87,7 @@ const CreateTask = () => {
   useEffect(() => {
     const fetchGroupProjects = async () => {
       try {
-        const teamRes = await axios.get("http://localhost:8000/auth/teams");
+        const teamRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/teams`);
         const allTeams = Array.isArray(teamRes.data.teams)
           ? teamRes.data.teams
           : [];
@@ -111,7 +111,7 @@ const CreateTask = () => {
         console.log("groupId>>", groupIds);
         // Step 2: Fetch all assigned projects
         const assignRes = await axios.get(
-          "http://localhost:8000/auth/assigned-projects"
+          `${process.env.REACT_APP_API_URL}/auth/assigned-projects`
         );
         const allAssigns = assignRes.data;
         console.log("allAssigns", allAssigns);
@@ -180,7 +180,7 @@ const CreateTask = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/task",
+        `${process.env.REACT_APP_API_URL}/auth/task`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -233,7 +233,7 @@ const CreateTask = () => {
     setLoading(true);
     try {
       const response = await axios.put(
-        `http://localhost:8000/auth/task/${editingTaskId}`,
+`${process.env.REACT_APP_API_URL}/auth/task/${editingTaskId}`,
         taskData
       );
       setMessage("✅ Task Updated Successfully!");
@@ -267,7 +267,7 @@ const CreateTask = () => {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
 
     try {
-      await axios.delete(`http://localhost:8000/auth/task/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/auth/task/${id}`);
       setMessage("🗑 Task Deleted Successfully!");
       setTasks(tasks.filter((task) => task._id !== id));
     } catch (error) {
@@ -287,7 +287,7 @@ const CreateTask = () => {
       console.log("groupId>>>", groupId);
 
       const response = await axios.post(
-        "http://localhost:8000/auth/sub-project",
+        `${process.env.REACT_APP_API_URL}/auth/sub-project`,
         { projectId, groupId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

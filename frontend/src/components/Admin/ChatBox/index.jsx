@@ -41,10 +41,10 @@ const AdminMessage = ({ activeUserId = null }) => {
     try {
       const token = localStorage.getItem("adminToken");
 
-      const studentsRes = await axios.get("http://localhost:8000/auth/users");
+      const studentsRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/users`);
       const students = studentsRes.data.users || studentsRes.data;
 
-      const supRes = await axios.get("http://localhost:8000/auth/supervisors");
+      const supRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/supervisors`);
       const supervisors = supRes.data.supervisors || supRes.data;
 
       setSidebarUsers([...students, ...supervisors]);
@@ -72,7 +72,7 @@ useEffect(() => {
   const loadMessages = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8000/auth/messages/${receiverId}`,
+        `${process.env.REACT_APP_API_URL}/auth/messages/${receiverId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setMessages(res.data.messages || []);
@@ -100,7 +100,7 @@ useEffect(() => {
     try {
       const token = localStorage.getItem("adminToken");
       await axios.post(
-        "http://localhost:8000/auth/messages/send",
+        `${process.env.REACT_APP_API_URL}/auth/messages/send`,
         { senderId, receiverId, message: newMessage },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -108,7 +108,7 @@ useEffect(() => {
 
       // quick refresh
       const res = await axios.get(
-        `http://localhost:8000/auth/messages/${receiverId}`,
+        `${process.env.REACT_APP_API_URL}/auth/messages/${receiverId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setMessages(res.data.messages || []);

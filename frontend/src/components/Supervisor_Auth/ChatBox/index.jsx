@@ -51,12 +51,12 @@ const SupervisorMessage = ({ activeUserId = null }) => {
         console.log("supervisorId>>", supervisorId);
 
         // ✅ 1. Get all admins
-        const adminsRes = await axios.get("http://localhost:8000/auth/admins");
+        const adminsRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/admins`);
         const admins = adminsRes.data.admins || adminsRes.data;
 
         // ✅ 2. Get assigned projects
         const assignedProjectsRes = await axios.get(
-          "http://localhost:8000/auth/assigned-projects"
+          `${process.env.REACT_APP_API_URL}/auth/assigned-projects`
         );
         const assignedProjects = assignedProjectsRes.data;
 
@@ -77,7 +77,7 @@ const SupervisorMessage = ({ activeUserId = null }) => {
         // console.log("projectTeamIds>>",projectTeamIds);
 
         // ✅ 5. Fetch all teams
-        const teamsRes = await axios.get("http://localhost:8000/auth/teams");
+        const teamsRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/teams`);
         const allTeams = teamsRes.data.teams || teamsRes.data;
 
         // ✅ 6. Filter only those teams from assigned projects
@@ -98,7 +98,7 @@ const SupervisorMessage = ({ activeUserId = null }) => {
         console.log("studentIdsInTeams>>>>", studentIdsInTeams);
 
         // ✅ 8. Fetch all students
-        const usersRes = await axios.get("http://localhost:8000/auth/users");
+        const usersRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/users`);
         const students = usersRes.data.users || usersRes.data;
 
         // ✅ 9. Filter only those students who are in team groupMembers
@@ -110,14 +110,14 @@ const SupervisorMessage = ({ activeUserId = null }) => {
 
         // ✅ 10. Fetch message senders
         const chatSendersRes = await axios.get(
-          `http://localhost:8000/auth/chat-senders/${supervisorId}`,
+          `${process.env.REACT_APP_API_URL}/auth/chat-senders/${supervisorId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         const chatUserIds = chatSendersRes.data.senders || [];
 
         // ✅ 11. Fetch assigned task users
         const taskRes = await axios.get(
-          `http://localhost:8000/auth/assigned-tasks?userId=${supervisorId}`
+          `${process.env.REACT_APP_API_URL}/auth/assigned-tasks?userId=${supervisorId}`
         );
         const taskUserIds = taskRes.data.map((t) => t.user_id);
 
@@ -164,7 +164,7 @@ const SupervisorMessage = ({ activeUserId = null }) => {
     const fetchMsgs = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/auth/messages/${receiverId}`,
+         `${process.env.REACT_APP_API_URL}/auth/messages/${receiverId}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setMessages(res.data.messages || []);
@@ -185,14 +185,14 @@ const SupervisorMessage = ({ activeUserId = null }) => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:8000/auth/messages/send",
+        `${process.env.REACT_APP_API_URL}/auth/messages/send`,
         { senderId, receiverId, message: newMessage },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setNewMessage("");
       /* reload */
       const res = await axios.get(
-        `http://localhost:8000/auth/messages/${receiverId}`,
+        `${process.env.REACT_APP_API_URL}/auth/messages/${receiverId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setMessages(res.data.messages || []);

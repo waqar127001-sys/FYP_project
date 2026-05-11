@@ -17,7 +17,7 @@ const Feedback = () => {
     }
   
     try {
-      const response = await fetch("http://localhost:8000/auth/Feedback/submit", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/Feedback/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -48,7 +48,7 @@ const Feedback = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await fetch("http://localhost:8000/auth/Feedback/list");
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/Feedback/list`);
       const data = await response.json();
       setReviews(data);
     } catch (error) {

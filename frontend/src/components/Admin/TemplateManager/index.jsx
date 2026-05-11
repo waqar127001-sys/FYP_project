@@ -29,7 +29,7 @@ const ProjectTemplates = () => {
   (async () => {
     try {
       // Fetch templates
-      const tplRes = await axios.get("http://localhost:8000/auth/templates", authHdr);
+      const tplRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/templates`, authHdr);
       const allTemplates = tplRes.data.templates || tplRes.data;
 
      
@@ -39,11 +39,11 @@ const ProjectTemplates = () => {
       setTemplates(filteredTemplates);
 
       // Fetch projects
-      const projRes = await axios.get("http://localhost:8000/auth/projects", authHdr);
+      const projRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/projects`, authHdr);
       setProjects(projRes.data.projects || projRes.data);
 
       // Fetch student groups / teams
-      const grpRes  = await axios.get("http://localhost:8000/auth/teams", authHdr);
+      const grpRes  = await axios.get(`${process.env.REACT_APP_API_URL}/auth/teams`, authHdr);
    
       setGroups(grpRes.data.teams || grpRes.data);
 
@@ -77,7 +77,7 @@ if (!file || !title.trim() || !description.trim() || !projectId || !groupId) {
 
       setUploading(true);
       await axios.post(
-        "http://localhost:8000/auth/templates/upload",
+        `${process.env.REACT_APP_API_URL}/auth/templates/upload`,
         formData,
         { headers: {
   "Content-Type": "multipart/form-data",  // works, but not necessary
@@ -86,7 +86,7 @@ if (!file || !title.trim() || !description.trim() || !projectId || !groupId) {
       );
 
       /* refresh list */
-      const { data } = await axios.get("http://localhost:8000/auth/templates", {
+      const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/auth/templates`, {
   headers: { Authorization: `Bearer ${token}` }, // Fixed template literal
 });
 
@@ -114,7 +114,7 @@ setTemplates(filteredTemplates);
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this template?")) return;
     try {
-      await axios.delete(`http://localhost:8000/auth/templates/del/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/auth/templates/del/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTemplates((prev) => prev.filter((t) => t._id !== id));

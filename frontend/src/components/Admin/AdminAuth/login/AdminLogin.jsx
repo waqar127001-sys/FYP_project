@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post('http://localhost:8000/auth/admin_login', admin);
+    const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/admin_login`, admin);
 
     console.log(res);
     // Store both token and admin data

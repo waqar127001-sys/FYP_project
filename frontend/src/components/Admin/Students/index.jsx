@@ -11,8 +11,8 @@ const AllUserGroups = () => {
     const fetchAllData = async () => {
       try {
         const [usersRes, teamsRes] = await Promise.all([
-          axios.get("http://localhost:8000/auth/users"),
-          axios.get("http://localhost:8000/auth/teams"),
+          axios.get(`${process.env.REACT_APP_API_URL}/auth/users`),
+          axios.get(`${process.env.REACT_APP_API_URL}/auth/teams`),
         ]);
 
         const usersMap = {};

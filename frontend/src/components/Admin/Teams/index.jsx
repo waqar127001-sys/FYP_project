@@ -21,7 +21,7 @@ const ManageTeams = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:8000/api/teams/${userId}`
+        `${process.env.REACT_APP_API_URL}/api/teams/${userId}`
       );
       setTeams(response.data);
       setLoading(false);
@@ -50,7 +50,7 @@ const ManageTeams = () => {
 
       // Send request to backend
       const response = await axios.post(
-        "http://localhost:8000/auth/create-team",
+       `${process.env.REACT_APP_API_URL}/auth/create-team`,
         payload
       );
 

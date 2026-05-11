@@ -29,7 +29,7 @@ const CreateProject = () => {
     const supervisorId = supervisor._id;
 
     // 1. Fetch all projects
-    const response = await axios.get("http://localhost:8000/auth/projects");
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/projects`);
     const allProjects = response.data;
 
     // 2. Filter only projects created by the logged-in supervisor
@@ -66,8 +66,8 @@ useEffect(() => {
     try {
        
        
-                //   const response = await axios.post("http://localhost:8000/auth/create-project", project);
-                  const response = await axios.post('http://localhost:8000/auth/create-project', {
+                //   const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/create-project`, project);
+                  const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/create-project`, {
                     title: project.title,
                     description: project.description,
                     deadline: project.deadline,

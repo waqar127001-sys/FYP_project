@@ -13,7 +13,7 @@ export default function TemplateManager() {
 const fetchData = async () => {
   try {
     // 1. Fetch all teams
-    const response = await axios.get("http://localhost:8000/auth/teams");
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/teams`);
     const allTeams = response.data.teams;
     console.log("All Teams:", allTeams);
 
@@ -27,7 +27,7 @@ const fetchData = async () => {
     console.log("User Group IDs:", studentGroupIds);
 
     // 4. Fetch all templates
-    const templateRes = await axios.get("http://localhost:8000/auth/templates");
+    const templateRes = await axios.get(`${process.env.REACT_APP_API_URL}/auth/templates`);
     const allTemplates = templateRes.data.templates;
 
     // 5. Filter templates assigned to the user’s groups
@@ -67,7 +67,7 @@ const fetchData = async () => {
           <div className={styles.actions}>
             <button className={styles.viewBtn} onClick={() => handlePreview(template)}>👁 View</button>
             <a
-              href={`http://localhost:8000${template.fileUrl}`}
+              href={`${process.env.REACT_APP_API_URL}${template.fileUrl}`}
               download={template.originalName}
               target="_blank"
               rel="noopener noreferrer"

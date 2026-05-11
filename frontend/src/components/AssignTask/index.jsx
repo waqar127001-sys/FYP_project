@@ -26,7 +26,7 @@ const AssignTask = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/auth/tasks");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/tasks`);
       setProjects(response.data);
     } catch (error) {
       console.error("Error fetching projects", error);
@@ -44,7 +44,7 @@ const AssignTask = () => {
   
       const userId = loggedInUser.id;
   
-      const response = await axios.get("http://localhost:8000/auth/users");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/users`);
       const allUsers = response.data.users || response.data;
   
       // ❌ Remove the logged-in user from list
@@ -68,7 +68,7 @@ const AssignTask = () => {
     }
 
     try {
-      await axios.put(`http://localhost:8000/auth/assigntask/${editingTask._id}`, editingTask);
+      await axios.put(`${process.env.REACT_APP_API_URL}/auth/assigntask/${editingTask._id}`, editingTask);
       alert("Task updated successfully!");
       setEditingTask(null);
       fetchAssignedTasks();
@@ -81,7 +81,7 @@ const AssignTask = () => {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
 
     try {
-      await axios.delete(`http://localhost:8000/auth/assigntask/${taskId}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/auth/assigntask/${taskId}`);
       setAssignedTasks(assignedTasks.filter((task) => task._id !== taskId));
       console.log("✅ Task deleted successfully!");
     } catch (error) {
@@ -98,7 +98,7 @@ const AssignTask = () => {
       }
 
       const userId = loggedInUser.id;
-      const response = await axios.get(`http://localhost:8000/auth/assigned-tasks?userId=${userId}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/assigned-tasks?userId=${userId}`);
       setAssignedTasks(response.data);
     } catch (error) {
       console.error("❌ Error fetching assigned tasks:", error);
