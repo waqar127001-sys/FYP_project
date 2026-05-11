@@ -1,0 +1,60 @@
+.container {
+    padding: 1rem;
+  }
+  
+  .heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1f2937; /* gray-800 */
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 1rem;
+    padding: 1rem;
+    border-left: 5px solid #10b981;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827; /* gray-900 */
+  }
+  
+  .date {
+    font-size: 0.875rem;
+    color: #9ca3af; /* gray-400 */
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    color: #facc15; /* yellow-400 */
+    margin-bottom: 0.5rem;
+  }
+  
+  .comment {
+    color: #374151; /* gray-700 */
+    font-style: italic;
+  }
+  

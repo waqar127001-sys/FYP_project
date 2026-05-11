@@ -1,0 +1,66 @@
+/* styles.module.css */
+
+.dashboardContainer {
+    
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 24px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #1f2937;
+}
+
+.card {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  border: 8px solid #10b981;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.email {
+  color: #6b7280;
+}
+
+.roleTag {
+  font-size: 0.875rem;
+  color: white;
+  background-color: #10b981;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-top: 8px;
+}
+.initialsAvatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}

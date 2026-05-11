@@ -1,0 +1,177 @@
+/* styles.module.css */
+
+.wrapper {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.uploadForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+.uploadForm label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.select {
+  padding: 0.5rem;
+  margin-top: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+.titleInput {
+  width: 95%;
+  padding: 10px 14px;
+  font-size: 16px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+   background-color: #f9f9f9;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.titleInput:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.fileInput {
+  grid-column: span 2;
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f5f5f5;
+  border: 2px dashed #bbb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  position: relative;
+}
+
+.fileInput input {
+  display: none;
+}
+
+button {
+   grid-column: span 2;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  
+  border-radius: 6px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:disabled {
+  background-color: #9bbce2;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #397dd1;
+}
+
+.selectedName {
+  grid-column: span 2;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.3rem;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.card {
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+  font-size: 1.4rem;
+  color: #4a90e2;
+}
+
+.card a {
+  color: #1a73e8;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.card small {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #e74c3c;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.deleteBtn:hover {
+  color: #c0392b;
+}
+
+.empty {
+  grid-column: span 2;
+  text-align: center;
+  color: #888;
+  font-size: 1rem;
+}

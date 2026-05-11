@@ -1,0 +1,145 @@
+.feedbackContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+  background: linear-gradient(to right, #ecf0f1, #dfe6e9);
+  min-height: 85vh;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.heading {
+  font-size: 26px;
+  font-weight: 1000;
+  margin-bottom: 20px;
+  color: #2d3436;
+  text-align: center;
+}
+
+.subHeading {
+  font-size: 22px;
+  font-weight: 1000;
+  color: #2d3436;
+  margin-bottom: 20px;
+}
+
+.form {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 43%;
+  min-width: 350px;
+  height: fit-content;
+  box-sizing: border-box;
+}
+
+.stars {
+  font-size: 40px;
+  margin-bottom: 16px;
+  color: #dcdde1;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.star {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.3s;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.filled {
+  color: #f1c40f;
+}
+
+.textarea {
+  width: 95%;
+  min-height: 120px;
+  resize: none;
+  padding: 14px;
+  font-size: 15px;
+  border: 1px solid #ced6e0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.submitBtn {
+  width: 100%;
+  background-color: #00b894;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: #019875;
+}
+
+/* Review Section Styling */
+.reviewList {
+  width: 55%;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+.reviewCard {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.reviewStars {
+  color: #f1c40f;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.reviewText {
+  font-size: 15px;
+  color: #636e72;
+  line-height: 1.4;
+}
+
+.noReviews {
+  font-style: italic;
+  color: #95a5a6;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .feedbackContainer {
+    flex-direction: column;
+  }
+
+  .form,
+  .reviewList {
+    width: 100%;
+  }
+
+  .reviewList {
+    max-height: 400px;
+  }
+}

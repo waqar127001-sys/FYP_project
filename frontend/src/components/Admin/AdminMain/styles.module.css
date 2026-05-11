@@ -1,0 +1,88 @@
+.main_wrapper {
+    display: flex;
+    height: 100vh;
+    background-color: #f4f7fa;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: #1f2937; /* dark slate gray */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar_header h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #10b981; /* emerald */
+    font-weight: 600;
+  }
+  
+  .sidebar_nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .sidebar_nav button {
+    background: none;
+    border: none;
+    color: #d1d5db;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background 0.3s, color 0.3s;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .sidebar_nav button:hover {
+    background-color: #374151;
+    color: #ffffff;
+  }
+  
+  .sidebar_nav button svg {
+    font-size: 18px;
+  }
+  
+  .active {
+    background-color: #10b981 !important;
+    color: white !important;
+    font-weight: bold;
+  }
+  
+  /* Logout Button */
+  .logout_btn {
+    margin-top: auto;
+    background-color: #ef4444; /* red */
+    color: white;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .logout_btn:hover {
+    background-color: #dc2626;
+  }
+  
+  /* Content Area */
+  .content_area {
+    flex: 1;
+   
+    overflow-y: auto;
+  }
+  

@@ -1,0 +1,123 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fc;
+    width: 100%;
+  }
+  
+  .signupContainer {
+    width: 100%;
+    max-width: 750px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+  }
+  
+  .iconContainer {
+    margin-bottom: 20px;
+  }
+  
+  .signupTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .inputContainer {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .inputContainer input {
+    width: 90%;
+    padding: 12px 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .inputContainer input:focus {
+    outline: none;
+    border-color: #4caf50;
+  }
+  
+  .inputIcon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #4caf50;
+  }
+  
+  .error_msg {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .fadeIn {
+    animation: fadeIn 1s;
+  }
+  
+  .fadeOut {
+    animation: fadeOut 1s;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .signupButton {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .signupButton:hover {
+    background-color: #45a049;
+  }
+  
+  .loadingButton {
+    background-color: #999;
+    cursor: not-allowed;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

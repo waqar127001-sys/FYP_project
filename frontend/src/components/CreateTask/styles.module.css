@@ -1,0 +1,289 @@
+.container {
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+
+.assignButton {
+    background-color:  #3498db; /* Yellow */
+    color: #f7f5f5;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 30%;
+    transition: 0.3s ease-in-out;
+    margin-bottom: 8px;
+  }
+  .buttonRow {
+    display: flex;
+    gap: 8px; /* Space between buttons */
+    justify-content: center;
+    align-items: center;
+  }
+  .assignButton:hover {
+    background-color: #1c411e;
+  }
+  
+.heading {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 46px;
+    font-weight: bold;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    font-size: large;
+    
+}
+.card_heading{
+    margin: 0;
+    font-size: 24px;
+    margin-left: 37%;
+}
+
+.task_form input,
+.task_form textarea,
+.task_form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.task_form textarea {
+    height: 80px;
+}
+
+
+/* Common base for all buttons */
+.buttonBase {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Submit Button */
+.buttonBase {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+.againsubmitButton{
+  composes: buttonBase;
+  margin-top: 2%;
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  width: 80%;
+}
+
+/* Submit Button */
+.projectsubmitButton {
+  composes: buttonBase;
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+}
+
+.projectsubmitButton:hover {
+  background: linear-gradient(135deg, #388e3c, #43a047);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+}
+
+/* Waiting Button */
+.waitingButton {
+  composes: buttonBase;
+  background: linear-gradient(135deg, #ffb74d, #ff9800);
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+/* Approved Button */
+.approvedButton {
+  composes: buttonBase;
+  background: linear-gradient(135deg, #42a5f5, #2196f3);
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+/* Rejected Button */
+.rejectedButton {
+  composes: buttonBase;
+  background: linear-gradient(135deg, #e53935, #d32f2f);
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+
+
+
+
+.button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+.editButton {
+    background-color: #2f25ed; /* Yellow */
+    color: #f7f5f5;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 30%;
+    transition: 0.3s ease-in-out;
+    margin-bottom: 8px;
+  }
+  
+  .editButton:hover {
+    background-color: #28a5e3;
+  }
+  
+  .deleteButton {
+    background-color: #dc3545; /* Red */
+    color: #ffffff;
+    width: 30%;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+    margin-bottom: 8px;
+  }
+  
+  .deleteButton:hover {
+    background-color: #c82333;
+  }
+.task_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.task_table th,
+.task_table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.task_table th {
+    background-color: #f8f9fa;
+}
+
+.priority {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.low {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.medium {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.high {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.message {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+}
+
+.modalContent {
+	background: white;
+	padding: 2rem;
+	border-radius: 1rem;
+	width: 90%;
+	max-width: 600px;
+	position: relative;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.closeButton {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	cursor: pointer;
+	font-size: 1.5rem;
+}
+
+.addTaskBtn {
+	margin-bottom: 1rem;
+	padding: 10px 20px;
+	background-color: #28a745;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+}

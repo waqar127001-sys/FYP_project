@@ -1,0 +1,227 @@
+/* 🔥 Main Navbar - Glassmorphism Style */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: rgba(30, 30, 47, 0.8); /* Semi-transparent */
+	backdrop-filter: blur(10px); /* Glass effect */
+	padding: 15px 30px;
+	color: white;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	margin: 10px;
+}
+
+/* 🏆 Left Side - Logo */
+.navbar h1 {
+	margin: 0;
+	font-size: 40px;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+/* 🔗 Navigation Links */
+.nav_links {
+	display: flex;
+	gap: 10px;
+}
+
+.nav_links button {
+	background: none;
+	border: none;
+	color: white;
+	font-size: 22px;
+	cursor: pointer;
+	padding: 10px 15px;
+	transition: all 0.3s ease-in-out;
+	position: relative;
+	/* overflow: hidden; */
+}
+
+/* 🌟 Neon Glow Hover Effect */
+.nav_links button::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(to right, #00bcd4, #ff4081);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.3s ease-in-out;
+}
+
+.nav_links button:hover::before {
+	transform: scaleX(1);
+}
+
+.nav_links button:hover {
+	color: #00bcd4;
+	transform: translateY(-2px);
+}
+
+/* 🔒 Auth Buttons */
+.auth_buttons {
+	display: flex;
+	gap: 15px;
+}
+
+/* 🚀 Button Base Style */
+.auth_buttons button {
+	border: none;
+	padding: 12px 25px;
+	border-radius: 25px;
+	font-size: 16px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: all 0.3s ease-in-out;
+}
+
+/* 🎨 Login Button - Futuristic Blue */
+.auth_buttons .login {
+	background: linear-gradient(135deg, #007bff, #0056b3);
+	color: white;
+	box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+	padding: 12px 28px;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	position: relative;
+	/* 
+	overflow: hidden; */
+	width: 100%;
+}
+
+/* Glow Effect */
+.auth_buttons .login::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(circle, rgba(0, 123, 255, 0.4) 10%, transparent 50%);
+	transform: translate(-50%, -70%);
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
+}
+
+/* Hover Effect */
+.auth_buttons .login:hover {
+	background: linear-gradient(135deg, #0056b3, #003d82);
+	box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+	transform: scale(1.08);
+}
+
+.auth_buttons .login:active {
+	transform: scale(1);
+}
+
+/* 💖 Signup Button - Premium Purple */
+.auth_buttons .signup {
+	background: linear-gradient(135deg, #8e44ad, #6a1b9a);
+	color: white;
+	box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+	padding: 12px 28px;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Glow Effect */
+.auth_buttons .signup::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(circle, rgba(142, 68, 173, 0.4) 10%, transparent 50%);
+	transform: translate(-50%, -70%);
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
+}
+
+/* Hover Effect */
+.auth_buttons .signup:hover {
+	background: linear-gradient(135deg, #6a1b9a, #4a148c);
+	box-shadow: 0 6px 20px rgba(142, 68, 173, 0.5);
+	transform: scale(1.08);
+}
+
+.auth_buttons .signup:active {
+	transform: scale(1);
+}
+
+/* 🔴 Logout Button - Elegant Red */
+.auth_buttons .logout {
+	background: linear-gradient(135deg, #e74c3c, #c0392b);
+	color: white;
+	box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+	padding: 12px 28px;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	position: relative;
+	/* overflow: hidden; */
+	width: 100%;
+}
+
+/* Glow Effect */
+.auth_buttons .logout::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(circle, rgba(231, 76, 60, 0.4) 10%, transparent 50%);
+	transform: translate(-50%, -70%);
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
+}
+
+/* Hover Effect */
+.auth_buttons .logout:hover {
+	background: linear-gradient(135deg, #c0392b, #a93226);
+	box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
+	transform: scale(1.08);
+}
+
+.auth_buttons .logout:active {
+	transform: scale(1);
+}
+
+
+/* 📱 Responsive Design */
+@media screen and (max-width: 768px) {
+	.navbar {
+		flex-direction: column;
+		text-align: center;
+		padding: 15px;
+	}
+
+	.nav_links {
+		flex-direction: column;
+		gap: 10px;
+		margin-top: 10px;
+	}
+
+	.auth_buttons {
+		margin-top: 10px;
+	}
+}

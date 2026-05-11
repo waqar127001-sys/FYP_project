@@ -1,0 +1,262 @@
+/* Signup Container */
+.signup_container {
+	width: 100%;
+	min-height: 100vh;
+	background-color: #f5f5f5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: fadeIn 0.5s ease-in; /* Increased duration to 2s */
+}
+
+.signup_form_container {
+	width: 900px;
+	height: 500px;
+	display: flex;
+	border-radius: 10px;
+	box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+		0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+	animation: popIn 1.5s ease-in-out; /* Increased duration to 1.5s */
+}
+
+
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 5px solid whitesmoke;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+	
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Left Section */
+.left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #3bb19b;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	animation: slideInLeft 1.5s ease; /* Increased duration to 1.5s */
+}
+
+.left h1 {
+	margin-top: 0;
+	color: white;
+	font-size: 35px;
+	align-self: center;
+	animation: fadeIn 2s ease-in; /* Increased duration to 2s */
+}
+
+/* Right Section */
+.right {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	animation: slideInRight 2s ease; /* Increased duration to 1.5s */
+}
+
+.form_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form_container h1 {
+	font-size: 40px;
+	margin-top: 0;
+	animation: fadeIn 2s ease-in; /* Increased duration to 2s */
+}
+
+/* Input Field */
+.input {
+	outline: none;
+	border: none;
+	width: 370px;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: #edf5f3;
+	margin: 5px 0;
+	font-size: 14px;
+	transition: transform 0.3s ease-in-out; /* Add hover effect */
+}
+
+.input:focus {
+	transform: scale(1.05); /* Slight zoom-in when focused */
+	box-shadow: 0 0 8px #3bb19b;
+}
+
+/* Error Message */
+/* Error message styles */
+.error_msg {
+	color: red;
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid red;
+	border-radius: 5px;
+	background-color: #ffe6e6;
+	font-size: 14px;
+	width: fit-content;
+	opacity: 0; /* Hidden by default */
+	transform: translateX(-50px); /* Start position for slide */
+}
+
+/* Slide-in and fade-in animation */
+@keyframes fadeInSlide {
+	0% {
+		opacity: 0;
+		transform: translateX(-50px); /* Start off-screen */
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0); /* Fully visible */
+	}
+}
+
+/* Slide-out and fade-out animation */
+@keyframes fadeOutSlide {
+	0% {
+		opacity: 1;
+		transform: translateX(0); /* Fully visible */
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(50px); /* Move out to the right */
+	}
+}
+
+/* Apply animation classes */
+.slide_in {
+	animation: fadeInSlide 0.5s forwards; /* Slide-in effect */
+}
+
+.slide_out {
+	animation: fadeOutSlide 0.5s forwards; /* Slide-out effect */
+}
+
+/* Buttons */
+.white_btn,
+.green_btn {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: white;
+	border-radius: 20px;
+	color: black;
+	width: 180px;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+	animation: fadeInUp 2.5s ease-in-out; /* Increased duration to 1.5s */
+}
+
+.white_btn:hover,
+.green_btn:hover {
+	transform: scale(1.1);
+}
+
+.green_btn {
+	background-color: #3bb19b;
+	color: white;
+	margin: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes popIn {
+	0% {
+		transform: scale(1);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes slideInLeft {
+	from {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes shake {
+	0%, 100% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(-5px);
+	}
+	50% {
+		transform: translateX(5px);
+	}
+	75% {
+		transform: translateX(-5px);
+	}
+}

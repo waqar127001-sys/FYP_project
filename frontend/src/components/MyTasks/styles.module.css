@@ -1,0 +1,321 @@
+/* Container Styling */
+.container {
+  max-width: 95%;
+  margin: auto;
+  padding: 45px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.submitButton {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 8px;  /* ✅ Added margin to separate from status button */
+    width: 100%;      /* ✅ Full width for better alignment */
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3;
+  }
+  .rejected {
+    color: whitesmoke;
+    font-weight: bold;
+    background-color: red; /* light red background */
+   
+  }
+
+  .noTasksMsg {
+  text-align: center;
+  font-size: 1.2rem;
+  color: gray;
+  margin: 20px 0;
+}
+
+  
+  
+  
+.rejectButton{
+  background-color: #ff4d4f;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 8px;  /* ✅ Added margin to separate from status button */
+  width: 100%;      /* ✅ Full width for better alignment */
+}
+
+.rejectButton:hover {
+  background-color: #0056b3;
+}
+
+  .statusActions {
+    display: flex;
+    flex-direction: column; /* ✅ Stack buttons vertically */
+    align-items: center; 
+  }
+  
+
+/* Heading */
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Task Actions */
+.taskActions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+/* Search Box */
+.searchBox {
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.searchIcon {
+  color: #555;
+  margin-right: 5px;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Task List */
+.taskList {
+  list-style: none;
+  padding: 0;
+}
+
+.taskItem {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.taskItem:hover {
+  transform: scale(1.02);
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100px;
+}
+
+
+.completed {
+  background: #4caf50;
+  color: white;
+}
+
+.pending {
+  background: #e67e22;
+  color: white;
+}
+
+/* Graphs */
+.graphs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+ 
+}
+
+.chartContainer {
+  width: 45%;
+  padding: 15px;
+  border-radius: 10px;
+}
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modalContainer {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 24px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 480px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modalTitle {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #333;
+  text-align: center;
+}
+
+.modalBody p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.completeBtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.completeBtn:hover {
+  background-color: #45a049;
+}
+
+.closeBtn {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.closeBtn:hover {
+  background-color: #e53935;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+.submitModalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.submitModal {
+  background-color: #fff;
+  padding: 24px 28px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  animation: slideUpFade 0.3s ease-out;
+}
+
+.submitModalTitle {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #333;
+  text-align: center;
+}
+
+.submitNoteInput {
+  width: 95%;
+  height: 100px;
+  padding: 10px 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  margin-bottom: 20px;
+}
+
+.submitModalActions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submitConfirmBtn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.submitConfirmBtn:hover {
+  background-color: #388e3c;
+}
+
+.submitCancelBtn {
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.submitCancelBtn:hover {
+  background-color: #d32f2f;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

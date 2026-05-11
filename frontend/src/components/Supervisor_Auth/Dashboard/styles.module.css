@@ -1,0 +1,127 @@
+.container {
+    padding: 20px;
+    background-color: #f9f9fb;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .heading {
+    font-size: 28px;
+    /* margin-bottom: 30px; */
+    color: #333;
+  }
+  
+  /* Profile Card */
+  .profileCard {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    padding: 20px 30px;
+    margin-bottom: 30px;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 25px;
+    border: 3px solid #4caf50;
+  }
+  
+  .info h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 24px;
+  }
+  .info p {
+    margin: 6px 0;
+    color: #666;
+  }
+  
+  /* Stats Cards */
+  .statsGrid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  
+  .simpleAvatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #10b981; /* green shade */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+  .statBox {
+    flex: 1;
+    min-width: 200px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .statBox:hover {
+    transform: scale(1.02);
+  }
+  
+  .statBox h4 {
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .statBox p {
+    font-size: 24px;
+    color: #111;
+    font-weight: bold;
+  }
+  
+  /* Graph Section Placeholder */
+  .graphSection {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+  }
+  
+  .graphPlaceholder {
+    margin-top: 20px;
+    background-color: #e0e0e0;
+    height: 220px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    font-style: italic;
+  }
+  
+
+  .rowGraphs {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .chartSmallWrapper {
+    flex: 1;
+    min-width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
