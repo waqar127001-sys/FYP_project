@@ -1,27 +1,24 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable */
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
 
 const ManageTeams = () => {
   const [teamName, setTeamName] = useState("");
-  const [showTeamModal, setShowTeamModal] = useState(false);
   const [teamSubject, setTeamSubject] = useState("");
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [teamDescription, setTeamDescription] = useState("");
-
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
   const loggedInUser = JSON.parse(localStorage.getItem("user"));
   const userId = loggedInUser.id;
-  const userName = loggedInUser.name; // Assuming you have the user's name in <localStorage></localStorage>
+  const userName = loggedInUser.name;
 
-  // Fetch teams that the student has created
-
-  const fetchTeams = async () => {
+  const fetchTeams = useCallback(async () => {
     try {
       setLoading(true);
       const response = await axios.get(
-       `${process.env.REACT_APP_API_URL}/api/teams/${userId}`
+        `${process.env.REACT_APP_API_URL}/api/teams/${userId}`
       );
       setTeams(response.data);
       setLoading(false);
@@ -29,26 +26,22 @@ const ManageTeams = () => {
       console.error("Error fetching teams:", error);
       setLoading(false);
     }
-  };
+  }, [userId]);
 
   useEffect(() => {
     fetchTeams();
-  }, []);
+  }, [fetchTeams]);
 
   const handleCreateTeam = async () => {
     try {
-      console.log("selectedUsr>>>>", selectedUsers);
-
-      // Assuming `userId` and `userName` are available from the logged-in user data
       const payload = {
         subject: teamSubject,
-        memberIds: selectedUsers.map((user) => user.id), // Only passing IDs of selected members
-        memberNames: selectedUsers.map((user) => user.name), // Include names of selected members
-        createdBy: userId, // Logged-in user ID
-        creatorName: userName, // Logged-in user Name
+        memberIds: selectedUsers.map((user) => user.id),
+        memberNames: selectedUsers.map((user) => user.name),
+        createdBy: userId,
+        creatorName: userName,
       };
 
-      // Send request to backend
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/auth/create-team`,
         payload
@@ -56,9 +49,8 @@ const ManageTeams = () => {
 
       if (response.data.success) {
         alert("Team created successfully!");
-        setShowTeamModal(false);
         setTeamSubject("");
-        setSelectedUsers([]); // Clear selected users after creating the team
+        setSelectedUsers([]);
       }
     } catch (error) {
       console.error("Error creating team:", error);
@@ -69,7 +61,6 @@ const ManageTeams = () => {
     <div className={styles.manage_teams_container}>
       <h2>Manage Your Teams</h2>
 
-      {/* Create Team Form */}
       <div className={styles.create_team_form}>
         <input
           type="text"
@@ -82,17 +73,16 @@ const ManageTeams = () => {
           value={teamDescription}
           onChange={(e) => setTeamDescription(e.target.value)}
         />
-        <button onClick={alert("teams managing")}>Create Team</button>
+        <button onClick={handleCreateTeam}>Create Team</button>
       </div>
 
-      {/* Display Created Teams */}
       <div className={styles.teams_list}>
         {loading ? (
           <p>Loading teams...</p>
         ) : (
           <ul>
             {teams.length > 0 ? (
-              teams.map((team, index) => (
+              teams.map((team) => (
                 <li key={team._id}>
                   <h3>{team.teamName}</h3>
                   <p>{team.teamDescription}</p>
