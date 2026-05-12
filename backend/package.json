@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "FYP Backend",
   "dependencies": {
     "@shadcn/ui": "^0.0.4",
     "bcrypt": "^5.1.1",
